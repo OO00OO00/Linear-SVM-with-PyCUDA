@@ -23,13 +23,21 @@ to:
 	#if _MSC_VER < 1600	
 This prevents an error being thrown by PyCUDA. Although this has let me use PyCUDA, I do not know it's other ramifications!
 
-2) In %PYTHON%\Lib\site-packages\skcuda, you may need to manually set the location of the relevant cublas.dll file. 
-For me, this DLL file is in:
-	%PYTHON%\DLL
+2) In %PYTHON%\Lib\site-packages\skcuda\cublas.py, you may need to manually set the location of the relevant cublas.dll file. E.g.,
 
+	dirname_DLL = 'C:\\Anaconda3\\DLLs'
+	_libcublas = None
+	for _libcublas_libname in _libcublas_libname_list:
+	    try:
+		if sys.platform == 'win32':
+		    _libcublas = ctypes.windll.LoadLibrary(dirname_DLL + "\\" +_libcublas_libname)
 
-DISCLAIMER: For anyone that wants to use this code, be aware that it's limited to the following:
-i) Subsetted models in one-vs-one fitting cannot be larger than 1024 records (i.e., to fit on a GPU block)
+-------------------------------------------------------------------------------------------------------------------
+
+DISCLAIMER: 
+For anyone that wants to use this code, be aware that it's limited to the following:
+i) Subsetted models in one-vs-one fitting cannot be larger than 1024 records (i.e., to fit on a GPU block). 
+E.g., your training design matrix could have shape (10M, 100), so long as each one-vs-one label pair has at most 1024 observations.
 ii) A small number of response categories, because of an unknown memory issue. In other words, 
 too many response categories will likely eat up your RAM and crash your python kernel.
 
