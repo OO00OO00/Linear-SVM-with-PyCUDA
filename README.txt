@@ -23,7 +23,8 @@ to:
 	#if _MSC_VER < 1600	
 This prevents an error being thrown by PyCUDA. Although this has let me use PyCUDA, I do not know it's other ramifications!
 
-2) In %PYTHON%\Lib\site-packages\skcuda, you may need to manually set the location of the relevant cublas.dll file. For me, this DLL file is in:
+2) In %PYTHON%\Lib\site-packages\skcuda, you may need to manually set the location of the relevant cublas.dll file. 
+For me, this DLL file is in:
 	%PYTHON%\DLL
 
 
