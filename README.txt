@@ -23,4 +23,10 @@ This prevents an error being thrown by PyCUDA. Although this has let me use PyCU
 
 2) In %PYTHON%\Lib\site-packages\skcuda, you may need to manually set the location of the relevant cublas.dll file. For me, this DLL file is in:
 	%PYTHON%\DLL
-	
+
+
+DISCLAIMER: For anyone that wants to use this code, be aware that it's limited to the following:
+i) Subsetted models in one-vs-one fitting cannot be larger than 1024 records (i.e., to fit on a GPU block)
+ii) A small number of response categories, because of an unknown memory issue. In other words, too many response categories will likely eat up your RAM and crash your python kernel.
+
+I strongly suspect these issues can be resolved, but have been unable to do so with my limited python/GPU experience. If anyone has any recommendations, feel free to post them!
