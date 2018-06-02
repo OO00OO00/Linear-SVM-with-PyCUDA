@@ -8,9 +8,11 @@ Description:
 This project demonstrates how PyCUDA can be used to build a linear support vector machine using the Huberized squared hinge loss.
 
 Setup (other than installing packages denoted in the scripts):
-- GPU
-- Install NVIDIA GPU Computing Toolkit with CUDA v9.2: https://developer.nvidia.com/cuda-downloads
-- Install MS Visual Studio 2017 Community version (v14.14.26428 worked for me)
+- Access to GPU
+- Install NVIDIA GPU Computing Toolkit with CUDA v9.2: 
+	https://developer.nvidia.com/cuda-downloads
+- Install MS Visual Studio 2017 Community version (v14.14.26428 worked for me):
+	https://www.visualstudio.com/downloads/
 
 Notes: You may need to do the following:
 1) In the file host_config.h found here,
